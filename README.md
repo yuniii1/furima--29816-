@@ -1,25 +1,56 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| mail            | string     | null: false                    |
+| password        | string     | null: false                    |
+| first-name      | string     | null: false                    |
+| last-name       | string     | null: false                    |
+| first-name-kana | string     | null: false                    |
+| last-name-kana  | string     | null: false                    |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :purchases
 
-* Ruby version
+## items テーブル
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| image           | string     | null: false                    |
+| item            | string     | null: false                    |
+| description     | string     | null: false                    |
+| category_id     | string     | null: false                    |
+| condition       | string     | null: false                    |
+| delivery-date   | string     | null: false                    |
+| shipping        | string     | null: false                    |
+| shipment-source | string     | null: false                    |
 
-* System dependencies
+### Association
+- belongs_to :users
+- has_one :purchases
 
-* Configuration
+## purchases テーブル
 
-* Database creation
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| user_id         | references | null: false, foreign_key: true |
+| item_id         | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
+- belongs_to :items
+- belongs_to :addresses
+- belongs_to :users
 
-* How to run the test suite
+## addressesテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| postal-code     | string     | null: false                    |
+| prefectures     | string     | null: false                    |
+| municipality    | string     | null: false                    |
+| address         | string     | null: false                    |
+| building-name   | string     | null: false                    |
+| tell-phone      | string     | null: false                    |
 
-* Deployment instructions
-
-* ...
-
+### Association
+- has_one :purchases
