@@ -8,7 +8,7 @@
 | last_name       | string     | null: false                    |
 | first_name_kana | string     | null: false                    |
 | last_name_kana  | string     | null: false                    |
-| date_select     | string     | null: false                    |
+| date_select     | date       | null: false                    |
 | nickname        | string     | null: false                    |
 
 ### Association
@@ -21,10 +21,10 @@
 | name               | string     | null: false                    |
 | description        | text       | null: false                    |
 | category_id        | integer    | null: false                    |
-| condition          | integer    | null: false                    |
-| delivery_date_id   | integer    | null: false  foreign_key: true |
-| shipping_id        | integer    | null: false  foreign_key: true |
-| shipment_source_id | integer    | null: false  foreign_key: true |
+| condition_id       | integer    | null: false                    |
+| delivery_date_id   | integer    | null: false                    |
+| shipping_id        | integer    | null: false                    |
+| shipment_source_id | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 | price              | integer    | null: false,                   |
 
