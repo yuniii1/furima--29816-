@@ -79,7 +79,3 @@ Style/FrozenStringLiteralComment:
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
  MinNameLength: 1
-
-group :production do
-  gem 'rails_12factor'
-end
