@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipment_source
   
   with_options presence: true do
+    validates :image
     validates :name
     validates :description
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
@@ -22,4 +23,5 @@ class Item < ApplicationRecord
     validates :category_id
   end
   validates :price, format: {with: /\A[0-9]+\z/, message: "は半角数字で入力してください"}
+
 end
