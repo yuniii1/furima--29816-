@@ -39,7 +39,17 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category is not a number")
       end
+      it 'category_idが１だと登録できない' do
+        @item.category_id = '１'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category is not a number")
+      end
       it 'condition_idが空だと登録できない' do
+        @item.condition_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition is not a number")
+      end
+      it 'condition_idが１だと登録できない' do
         @item.condition_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition is not a number")
@@ -49,12 +59,27 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery date is not a number")
       end
+      it 'delivery_date_idが１だと登録できない' do
+        @item.delivery_date_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery date is not a number")
+      end
       it 'shipping_idが空だと登録できない' do
         @item.shipping_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping is not a number")
       end
+      it 'shipping_idが１だと登録できない' do
+        @item.shipping_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping is not a number")
+      end
       it 'shipment_source_idが空だと登録できない' do
+        @item.shipment_source_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipment source is not a number")
+      end
+      it 'shipment_source_idが１だと登録できない' do
         @item.shipment_source_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipment source is not a number")
