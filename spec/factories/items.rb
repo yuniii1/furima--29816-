@@ -10,9 +10,6 @@ FactoryBot.define do
     shipment_source_id           { 2 }
     category_id                  { 2 }
 
-    # trait :image do
-    #   image { File.new("#{Rails.root}/spec/images/test_image.png") }
-    # end
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
