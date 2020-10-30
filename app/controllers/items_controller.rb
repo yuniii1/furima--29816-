@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @items = Item.all.order("id DESC")
+    @items = Item.all.order('id DESC')
   end
 
   def new
@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end      
+    end
   end
 
   def edit
@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
 
   private
 
