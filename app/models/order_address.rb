@@ -15,8 +15,8 @@ class OrderAddress
   validates :tell_phone, format: { with: /\A\d{10,11}\z/}
   
   def save
-    Purchase.create(user_id: user_id, item_id: item_id)
-    Address.create(postal_code: postal_code, prefectures_id: prefectures_id, municipality: municipality, address: address, building_name: building_name, tell_phone: tell_phone, purchase_id: purchase_id, user_id: user_id)
+    purchase = Purchase.create(user_id: user_id, item_id: item_id)
+    address = Address.create(postal_code: postal_code, prefectures_id: prefectures_id, municipality: municipality, address: address, building_name: building_name, tell_phone: tell_phone, purchase_id: purchase_id)
   end
 end
 
