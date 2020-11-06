@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
-  describe '配送先の住所' do
+  describe '購入情報の入力' do
     before do
       @order_address = FactoryBot.build(:order_address)
     end
@@ -50,6 +50,11 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.tell_phone = "123456789012"
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Tell phone is invalid")
+    end
+    it "tokenが空では登録できないこと" do
+      @order_address.token = ""
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Token can't be blank")
     end
   end
 end
