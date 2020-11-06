@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
   def set_redirect
     return redirect_to root_path if current_user.id != @item.user.id
   end
